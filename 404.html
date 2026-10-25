@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="night">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 · bash: command not found</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="stylesheet" href="/style.css">
+  <style>
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+    .err-box {
+      width: 100%;
+      max-width: 520px;
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 24px;
+      font-family: var(--font-mono);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
+    }
+    .err-prompt {
+      color: var(--accent);
+      font-weight: 700;
+    }
+    .err-msg {
+      margin-top: 12px;
+      color: #ff5f56;
+      font-size: 13.5px;
+    }
+    .err-return {
+      margin-top: 20px;
+      font-size: 12.5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="err-box">
+    <div><span class="err-prompt">$</span> cd <span id="current-path">/404</span></div>
+    <div class="err-msg">bash: /404: No such file or directory</div>
+    <div class="err-return">
+      &rarr; <a href="/">cd /home/sampurn (return to safety)</a>
+    </div>
+  </div>
+  <script>
+    document.getElementById('current-path').textContent = window.location.pathname;
+  </script>
+</body>
+</html>

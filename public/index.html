@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="night">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sampurn Gupta · Software Engineer</title>
+  <meta name="description" content="Personal portfolio of Sampurn Gupta — Software Engineer building backend systems, ML/LLM pipelines, and automation tools.">
+  <meta name="author" content="Sampurn Gupta">
+  <link rel="canonical" href="https://sampurngupta.dev">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://sampurngupta.dev/">
+  <meta property="og:title" content="Sampurn Gupta · Software Engineer">
+  <meta property="og:description" content="Personal portfolio of Sampurn Gupta — Software Engineer building backend systems, ML/LLM pipelines, and automation tools.">
+  <meta property="og:image" content="https://sampurngupta.dev/og-image.png">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Sampurn Gupta · Software Engineer">
+  <meta name="twitter:description" content="Personal portfolio of Sampurn Gupta — Software Engineer building backend systems, ML/LLM pipelines, and automation tools.">
+  <meta name="twitter:image" content="https://sampurngupta.dev/og-image.png">
+
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="stylesheet" href="/style.css">
+
+  <!-- Inline script executed before paint to set initial theme & accessibility state -->
+  <script>
+    (function() {
+      // 1. Time-of-day default theme calculation:
+      // Night (20:00–05:59), Dawn (06:00–08:59), Morning (09:00–11:59), Noon (12:00–17:59), Evening (18:00–19:59)
+      var hour = new Date().getHours();
+      var defaultTheme = 'night';
+      if (hour >= 6 && hour < 9) defaultTheme = 'dawn';
+      else if (hour >= 9 && hour < 12) defaultTheme = 'morning';
+      else if (hour >= 12 && hour < 18) defaultTheme = 'noon';
+      else if (hour >= 18 && hour < 20) defaultTheme = 'evening';
+      else defaultTheme = 'night';
+
+      var savedTheme = localStorage.getItem('theme') || defaultTheme;
+      document.documentElement.setAttribute('data-theme', savedTheme);
+
+      // Check reduced motion
+      window.__reducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    })();
+  </script>
+
+  <!-- Noscript fallback: ensures content is immediately visible for non-JS / search engine bots -->
+  <noscript>
+    <style>
+      #splash-container, #boot-container, .theme-pill-container, #terminal-trigger, #butterflies-layer {
+        display: none !important;
+      }
+      #content {
+        visibility: visible !important;
+        opacity: 1 !important;
+      }
+      .stream-hidden {
+        visibility: visible !important;
+        opacity: 1 !important;
+      }
+      .portfolio-container {
+        display: block !important;
+        opacity: 1 !important;
+      }
+    </style>
+  </noscript>
+</head>
+<body>
+  <!-- Stage 0: Loading screen & Splash homepage -->
+  <div id="splash-container" class="splash-container" role="dialog" aria-modal="true" aria-label="Interactive Splash Screen">
+    <canvas id="starfield-canvas"></canvas>
+    
+    <!-- Left & Right Text Labels -->
+    <div class="splash-text-overlay">
+      <div class="splash-left">Sampurn Gupta</div>
+      <div class="splash-right">Software Engineer</div>
+      <div class="splash-hint" id="splash-hint">click anywhere to enter <span class="splash-arrow">&rarr;</span></div>
+    </div>
+  </div>
+
+  <!-- Stage 1: Terminal Boot Screen -->
+  <div id="boot-container" class="boot-container" style="display: none;" role="region" aria-label="Terminal Boot Sequence">
+    <div class="boot-terminal-window">
+      <div class="boot-header">
+        <span class="boot-dot red"></span>
+        <span class="boot-dot yellow"></span>
+        <span class="boot-dot green"></span>
+        <span class="boot-title">guest@terminal:~</span>
+      </div>
+      <div class="boot-content" id="boot-content">
+        <!-- Typed out dynamically in main.js -->
+      </div>
+    </div>
+    <button id="boot-skip" class="boot-skip-btn" aria-label="Skip terminal boot sequence">skip &rarr;</button>
+  </div>
+
+  <!-- Butterflies Interactive Layer (Fixed Edge-to-Edge) -->
+  <div id="butterflies-layer" class="butterflies-layer" aria-hidden="true"></div>
+
+  <!-- Top-Right Fixed 5-Theme Pill Slider -->
+  <nav class="theme-pill-nav" aria-label="Theme selector">
+    <div class="theme-pill" role="radiogroup" aria-label="Select color theme">
+      <button class="theme-dot-btn" data-theme-name="dawn" role="radio" aria-checked="false" aria-label="Dawn theme" title="Dawn (06:00–08:59)">
+        <span class="dot-swatch dawn"></span>
+      </button>
+      <button class="theme-dot-btn" data-theme-name="morning" role="radio" aria-checked="false" aria-label="Morning theme" title="Morning (09:00–11:59)">
+        <span class="dot-swatch morning"></span>
+      </button>
+      <button class="theme-dot-btn" data-theme-name="noon" role="radio" aria-checked="false" aria-label="Noon theme" title="Noon (12:00–17:59)">
+        <span class="dot-swatch noon"></span>
+      </button>
+      <button class="theme-dot-btn" data-theme-name="evening" role="radio" aria-checked="false" aria-label="Evening theme" title="Evening (18:00–19:59)">
+        <span class="dot-swatch evening"></span>
+      </button>
+      <button class="theme-dot-btn active" data-theme-name="night" role="radio" aria-checked="true" aria-label="Night theme" title="Night (20:00–05:59)">
+        <span class="dot-swatch night"></span>
+      </button>
+      <!-- Active slider indicator butterfly -->
+      <span class="theme-butterfly-indicator" id="theme-butterfly" aria-hidden="true">🦋</span>
+    </div>
+  </nav>
+
+  <!-- Main Portfolio Application Container -->
+  <div class="portfolio-container" id="portfolio-container">
+    <header class="portfolio-header">
+      <div class="header-top">
+        <h1 class="brand-name">Sampurn Gupta</h1>
+        <span class="status-pill"><span class="status-dot"></span> open to roles</span>
+      </div>
+      <p class="brand-role">Software Engineer · Backend & ML/LLM Pipelines</p>
+      <div class="social-links-row">
+        <a href="https://github.com/SampurnGupta" target="_blank" rel="noopener" class="link-item" title="GitHub">github</a>
+        <span class="sep">/</span>
+        <a href="https://linkedin.com/in/sampurngupta" target="_blank" rel="noopener" class="link-item" title="LinkedIn">linkedin</a>
+        <span class="sep">/</span>
+        <a href="https://leetcode.com/sampurngupta" target="_blank" rel="noopener" class="link-item" title="LeetCode">leetcode</a>
+        <span class="sep">/</span>
+        <a href="https://codechef.com/users/sampurngupta" target="_blank" rel="noopener" class="link-item" title="CodeChef">codechef</a>
+        <span class="sep">/</span>
+        <button id="email-btn" class="email-btn" aria-label="Copy Email Address">copy email</button>
+        <span class="sep">/</span>
+        <a href="/resume.pdf" target="_blank" rel="noopener" class="link-item" title="Resume PDF">resume</a>
+      </div>
+    </header>
+
+    <!-- Main Content: Server Pre-rendered and Visually Replayed by SSE -->
+    <main id="content" role="log" aria-live="polite" aria-busy="true" class="stream-hidden">
+      <!-- SERVER_PRERENDER_CONTENT -->
+    </main>
+
+    <!-- Finale: Flappy Bird Terminal Canvas Game -->
+    <section id="game-section" class="game-section">
+      <div class="cmd-heading"><span class="prompt-sym">$</span> <span class="cmd-text">./play_flappy.sh</span></div>
+      <div class="game-panel">
+        <div class="game-header-bar">
+          <span class="game-title">TERMINAL FLAPPY BIRD</span>
+          <span class="game-score-display">SCORE: <span id="game-score">0</span> | BEST: <span id="game-best">0</span></span>
+        </div>
+        
+        <div class="game-canvas-wrapper" id="game-canvas-wrapper" tabindex="0" role="application" aria-label="Terminal Flappy Bird Game">
+          <canvas id="flappy-canvas" width="600" height="280"></canvas>
+          <div id="game-focus-overlay" class="game-overlay">
+            <p>CLICK OR PRESS SPACE TO PLAY</p>
+            <p class="game-subtext">[SPACE / UP / TAP TO FLAP]</p>
+          </div>
+        </div>
+
+        <!-- Leaderboard section -->
+        <div class="leaderboard-container" id="leaderboard-container">
+          <div class="leaderboard-header">
+            <span>HIGH SCORES</span>
+            <span class="live-tag">LIVE LEADERBOARD</span>
+          </div>
+          <div id="scores-list" class="scores-list">
+            <!-- Dynamically populated from /scores -->
+            <div class="score-row loading">Loading scores...</div>
+          </div>
+          <form id="score-submit-form" class="score-form" style="display: none;">
+            <label for="player-name">YOUR INITIALS (1-10 CHARS):</label>
+            <div class="score-input-group">
+              <input type="text" id="player-name" maxlength="10" placeholder="AAA" required autocomplete="off" spellcheck="false">
+              <button type="submit" class="submit-score-btn">SAVE SCORE</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer with Dynamic Uptime & Live SSE Visitors -->
+    <footer class="portfolio-footer">
+      <div class="footer-left">
+        <span>uptime: <span id="uptime-counter">0m 00s</span></span>
+        <span class="sep">·</span>
+        <span>load: coffee</span>
+        <span class="sep">·</span>
+        <span id="live-visitors-wrapper"><span class="live-dot"></span> <span id="live-count">1</span> online</span>
+      </div>
+      <div class="footer-right">
+        <a href="https://github.com/SampurnGupta/Portfolio" target="_blank" rel="noopener">source code ↗</a>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Floating Terminal Trigger Icon Button -->
+  <button id="terminal-trigger" class="terminal-trigger-btn" aria-label="Open Interactive Terminal" title="Open terminal (>_)">
+    &gt;_
+  </button>
+
+  <!-- Hidden Slide-Up Interactive Terminal Drawer -->
+  <div id="terminal-drawer" class="terminal-drawer" role="dialog" aria-modal="false" aria-label="Interactive Portfolio Shell" style="display: none;">
+    <div class="terminal-drawer-header">
+      <div class="term-dots">
+        <span class="term-dot close" id="term-close-btn" title="Close"></span>
+        <span class="term-dot minimize" title="Minimize"></span>
+        <span class="term-dot maximize" title="Maximize"></span>
+      </div>
+      <span class="term-title">sampurn@portfolio:~ (type 'help' for commands)</span>
+      <button class="term-close-icon" id="term-close-x" aria-label="Close terminal">&times;</button>
+    </div>
+    <div class="terminal-drawer-body" id="term-output">
+      <div class="term-line">Welcome to Sampurn's interactive terminal!</div>
+      <div class="term-line">Type <span class="term-highlight">help</span> to view all available commands.</div>
+    </div>
+    <form id="term-form" class="terminal-drawer-form" autocomplete="off">
+      <span class="term-prompt">$</span>
+      <input type="text" id="term-input" class="term-input" spellcheck="false" autofocus aria-label="Terminal command input">
+    </form>
+  </div>
+
+  <!-- Full-Screen Matrix Rain Canvas Overlay -->
+  <canvas id="matrix-canvas" class="matrix-canvas" style="display: none;"></canvas>
+
+  <!-- Toast Notification for Email Copy / Alerts -->
+  <div id="toast" class="toast" role="alert" aria-live="assertive"></div>
+
+  <!-- Application Scripts -->
+  <script src="/splash.js"></script>
+  <script src="/butterflies.js"></script>
+  <script src="/terminal.js"></script>
+  <script src="/matrix.js"></script>
+  <script src="/game/flappy.js"></script>
+  <script src="/main.js"></script>
+</body>
+</html>

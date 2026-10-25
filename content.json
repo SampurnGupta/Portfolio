@@ -1,0 +1,173 @@
+{
+  "meta": {
+    "name": "Sampurn Gupta",
+    "role": "Software Engineer",
+    "domain": "sampurngupta.dev",
+    "location": "Gurugram / Lucknow, India",
+    "status": "Available for Software Engineering Roles",
+    "social": {
+      "github": "https://github.com/SampurnGupta",
+      "linkedin": "https://linkedin.com/in/sampurngupta",
+      "leetcode": "https://leetcode.com/sampurngupta",
+      "codechef": "https://codechef.com/users/sampurngupta",
+      "emailUser": "sampurngupta.work",
+      "emailDomain": "gmail.com"
+    }
+  },
+  "about": {
+    "text": "I build backend systems, ML/LLM pipelines, and automation tools. My work spans distributed systems (a DHT routing library at IIT Kanpur), RAG chatbots with streaming, portfolio optimization with multi-agent debate, and LLM benchmarking research. Looking for a software engineering role at a startup where shipping fast and learning faster is the default."
+  },
+  "experience": [
+    {
+      "emoji": "🏢",
+      "role": "Technical Operations Lead",
+      "organization": "Institute of Innovation & Entrepreneurship (IIE), BML Munjal University",
+      "period": "Sep 2025 – Aug 2026",
+      "metric": "Sep 2025 – Aug 2026",
+      "bullets": [
+        "Automated event-driven content publishing workflows in n8n, cutting turnaround time ~30%.",
+        "Gathered requirements; built prototypes: websites, portfolios, chatbots, automation tools.",
+        "Improved SEO via keyword targeting, meta tags, internal linking, sitemap, and page-speed work."
+      ]
+    },
+    {
+      "emoji": "🔬",
+      "role": "Application Developer Intern",
+      "organization": "YRRNA Systems Lab, IIT Kanpur",
+      "period": "May 2025 – Jul 2025",
+      "metric": "May 2025 – Jul 2025",
+      "bullets": [
+        "Built low-latency routing libraries for a scalable hybrid Chord-Tapestry DHT P2P network.",
+        "Cut average network latency ~25% through iterative optimization and edge-case testing.",
+        "Designed modular Dart components for routing abstraction and diagnostics, adopted by internal teams."
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "emoji": "⚡",
+      "name": "Tangent",
+      "slug": "tangent",
+      "desc": "Multi-asset portfolio optimizer + multi-agent decision engine. FastAPI, Next.js, PostgreSQL, Redis, Docker, Groq/LLaMA 3.3. 70+ asset universe, 5K+ Monte Carlo paths with Indian LTCG tax/inflation, 5-persona AI debate arena with Critic agent.",
+      "tech": ["FastAPI", "Next.js", "PostgreSQL", "Redis", "Docker", "LLaMA 3.3"],
+      "demoUrl": "[DEMO_URL]",
+      "githubUrl": "https://github.com/SampurnGupta/Tangent"
+    },
+    {
+      "emoji": "📊",
+      "name": "DevPrompt",
+      "slug": "devprompt",
+      "desc": "Structured-prompting benchmarking research for LLMs. 6-phase pipeline, 432 API calls; structured JSON improved Tool F1 ~15.3% (p=0.0016).",
+      "tech": ["Python", "Prompt Engineering", "Evaluation", "Statistical Analysis"],
+      "paperUrl": "[PAPER_URL]",
+      "githubUrl": "https://github.com/SampurnGupta/DevPrompt"
+    },
+    {
+      "emoji": "🤖",
+      "name": "MultiModal RAG Chatbot",
+      "slug": "multimodal-rag",
+      "desc": "RAG over 6 input types (text, URL, PDF, DOCX, image/OCR, YouTube). Node.js, ChromaDB, Ollama, Groq, SSE streaming — same technique this site uses.",
+      "tech": ["Node.js", "ChromaDB", "Ollama", "Groq", "SSE Streaming"],
+      "demoUrl": "[DEMO_URL]",
+      "githubUrl": "https://github.com/SampurnGupta/MultiModal-RAG"
+    }
+  ],
+  "education": [
+    {
+      "emoji": "🎓",
+      "degree": "B.Tech CSE",
+      "institution": "BML Munjal University, Gurugram",
+      "period": "2023–2027",
+      "metric": "CGPA 8.58/10",
+      "details": "Final-year B.Tech CSE student"
+    },
+    {
+      "emoji": "📚",
+      "degree": "ISC (12th) 94% · ICSE (10th) 92.2%",
+      "institution": "Lucknow",
+      "period": "2021 · 2023",
+      "metric": "94% · 92.2%",
+      "details": "High school & secondary education"
+    }
+  ],
+  "achievements": [
+    {
+      "emoji": "🥉",
+      "title": "2nd Runner-Up",
+      "desc": "Eightfold AI Hackathon, IIT Kanpur 2025 — top 3 of 200+ teams (IITs & NITs)",
+      "metric": "2025"
+    },
+    {
+      "emoji": "🇮🇳",
+      "title": "National Finalist",
+      "desc": "Smart India Hackathon 2023 — top 0.5% of 50,000+ submissions",
+      "metric": "2023"
+    },
+    {
+      "emoji": "🎓",
+      "title": "Student Academic Representative",
+      "desc": "BML Munjal University",
+      "metric": "2024–25"
+    },
+    {
+      "emoji": "💼",
+      "title": "Head of Sponsorship",
+      "desc": "Propel PitchFest 2025 (ACIC-BMU)",
+      "metric": "2025"
+    },
+    {
+      "emoji": "🎉",
+      "title": "Lead, Melange",
+      "desc": "BMU's flagship cultural fest",
+      "metric": "2024"
+    }
+  ],
+  "skills": [
+    {
+      "category": "languages/",
+      "items": ["c++", "java", "python", "javascript", "sql"]
+    },
+    {
+      "category": "backend/",
+      "items": ["fastapi", "flask", "node.js/express"]
+    },
+    {
+      "category": "ml-ai/",
+      "items": ["scikit-learn", "rag-pipelines", "llms", "embeddings", "transformers"]
+    },
+    {
+      "category": "automation/",
+      "items": ["n8n", "webhooks", "rest-api", "bash"]
+    },
+    {
+      "category": "data/",
+      "items": ["mongodb", "postgresql", "redis"]
+    },
+    {
+      "category": "devops/",
+      "items": ["docker", "github-actions", "aws-gcp", "prometheus", "grafana"]
+    },
+    {
+      "category": "fundamentals/",
+      "items": ["dsa", "oop", "dbms", "os", "distributed-systems"]
+    }
+  ],
+  "photos": [
+    {
+      "path": "/images/photo1.jpg",
+      "caption": "distributed dht routing lab sessions @ iit kanpur"
+    },
+    {
+      "path": "/images/photo2.jpg",
+      "caption": "eightfold ai hackathon podium finish"
+    },
+    {
+      "path": "/images/photo3.jpg",
+      "caption": "late-night pipeline debugging fuelled by coffee"
+    }
+  ],
+  "footer": {
+    "load": "coffee",
+    "commandHint": "press `>` or click terminal icon bottom-right for interactive shell"
+  }
+}

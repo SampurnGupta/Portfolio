@@ -1,0 +1,24 @@
+{
+  "name": "portfolio",
+  "version": "1.0.0",
+  "description": "Sampurn Gupta - Minimalist Terminal & SSE Streaming Portfolio",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "keywords": [
+    "portfolio",
+    "terminal",
+    "sse-streaming",
+    "minimalist",
+    "retro"
+  ],
+  "author": "Sampurn Gupta",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.21.2",
+    "express-rate-limit": "^7.5.0",
+    "helmet": "^8.0.0"
+  }
+}
